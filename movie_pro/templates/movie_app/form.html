@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Form</title>
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 mt-5 p-5 border border-5 bg-info ">
+    <form method="post">
+        {% csrf_token %}
+        {{form.as_p}}
+        <button class="btn btn-success col-5" type="submit">Submit</button>
+        <button class="btn btn-warning col-5 float-end" type="reset">Reset</button>
+    </form>
+</div>
+{% endblock %}

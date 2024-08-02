@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Delete</title>
+{% endblock %}
+
+{% block content %}
+<div class="container w-50 mt-5 p-5 border border-5 bg-info ">
+    <form method="post">
+        {% csrf_token %}
+        <h1>Do you really want to delete review of id
+        <span class="text-center text-primary">{{obj.id}}</span></h1>
+        <button class="btn btn-success col-5" type="submit">Yes</button>
+        <a class="btn btn-warning col-5 float-end" href="{% url 'data_url' %}">No</a>
+    </form>
+</div>
+{% endblock %}

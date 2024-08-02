@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>NavBar</title>
+</head>
+<body>
+<nav class="navbar navbar-expand-lg navbar-light bg-light">
+  <a class="navbar-brand" href="#">Navbar</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Features</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Pricing</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link disabled" href="#">Disabled</a>
+      </li>
+      <li>
+      <form method="post" class="form-inline my-2 my-lg-0" action="{% url 'search_url %}">
+        {% csrf_token %}
+      <input class="form-control mr-sm-2" name="data" type="search" placeholder="Search by title/director" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+         <li>
+      <form method="post" class="form-inline my-2 my-lg-0" action="{% url 'status_url %}">
+        {% csrf_token %}
+      <input class="form-control mr-sm-2" name="status" type="search" placeholder="filter by status" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+       <li>
+      <form method="post" class="form-inline my-2 my-lg-0" action="{% url 'genres_url %}">
+        {% csrf_token %}
+      <input class="form-control mr-sm-2" name="genres" type="search" placeholder="Search by genres" aria-label="Search">
+      <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+    </form>
+      </li>
+    </ul>
+  </div>
+</nav>
+</body>
+</html>

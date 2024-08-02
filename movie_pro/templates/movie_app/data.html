@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block title %}
+<title>Data</title>
+{% endblock %}
+
+{% block content %}
+<div>
+    <h1 class="text-primary text-center">Data</h1>
+    <table class="table table-dark">
+  <thead>
+    <tr>
+      <th scope="col">ID</th>
+      <th scope="col">Title</th>
+      <th scope="col">Director</th>
+      <th scope="col">Review Content</th>
+      <th scope="col">Rating</th>
+            <th scope="col">Created At</th>
+      <th scope="col">Review Email ID</th>
+      <th scope="col">Status</th>
+      <th scope="col">Genres</th>
+
+        <th colspan="2">Action</th>
+    </tr>
+  </thead>
+  <tbody>
+  {% for obj in objs %}
+    <tr>
+      <td>{{obj.id}}</td>
+      <td>{{obj.title}}</td>
+      <td>{{obj.director}}</td>
+      <td>{{obj.review_content}}</td>
+            <td>{{obj.rating}}</td>
+      <td>{{obj.created_at}}</td>
+      <td>{{obj.reviewer_email_id}}</td>
+      <td>{{obj.status}}</td>
+      <td>{{obj.genres}}</td>
+
+        <td><a class="btn btn-primary" href="{% url 'update_url' obj.id %}">Update</a></td>
+        <td><a class="btn btn-warning" href="{% url 'delete_url' obj.id %}">Delete</a></td>
+    </tr>
+    {% endfor %}
+  </tbody>
+</table>
+</div>
+{% endblock %}
